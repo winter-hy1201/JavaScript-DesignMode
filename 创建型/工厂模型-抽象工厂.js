@@ -31,13 +31,13 @@ class HardWare {
 */
 class AndroidOS extends OS {
   controlHardWare() {
-    console.log('我将使用安卓系统操控硬件')
+    console.log('我将使用安卓系统图形化界面操控硬件')
   }
 }
 
 class AppleOS extends OS {
   controlHardWare() {
-    console.log('我将使用苹果系统操控硬件')
+    console.log('我将使用苹果系统图形化界面操控硬件')
   }
 }
 
