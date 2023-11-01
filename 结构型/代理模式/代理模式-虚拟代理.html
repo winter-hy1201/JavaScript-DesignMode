@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>虚拟代理</title>
+  </head>
+  <body>
+    <img id="iiii" src="https://picx.zhimg.com/v2-6ff9375bad78c702d52ff9cb7df8a8a1_720w.jpg?source=7e7ef6e2"></img>
+  </body>
+  <script>
+    class PreLoadImage {
+      //加载时的占位图片
+      static LOADING_URL = '/JavaScript-designMode/结构型/代理模式/card-img.png'
+
+      constructor(imgNode) {
+        this.imgNode = imgNode
+      }
+
+      //监听资源加载情况，加载完成时再展示
+      setSrc(targetUrl) {
+        this.imgNode.setSrc(PreLoadImage.LOADING_URL)
+
+        const virtualImage = new Image()
+
+        virtualImage.onload = () => {
+          console.log('加载完成')
+          this.imgNode.setSrc(targetUrl)
+        }
+
+        virtualImage.src = targetUrl
+      }
+    }
+
+    const imageNode = document.querySelector('#iiii')
+    const img = new PreLoadImage(imageNode)
+  </script>
+</html>
